@@ -1,0 +1,113 @@
+
+/* start sections titles style*/
+.items_title, .basket_title {
+    text-align: center;
+    margin-top: 60px;
+    font-size: 25px;
+    color: var(--bg-color);
+    text-shadow: 0 0 5px rgba(255, 255, 255, 1);
+    position: relative;
+}
+
+.items_title::before, .basket_title::before {
+    content: "";
+    width: 270px;
+    height: 3px;
+    background: var(--bg-color);
+    position: absolute;
+    right: -295px;
+    top: 40%;
+}
+
+.items_title::after, .basket_title::after {
+    content: "";
+    width: 270px;
+    height: 3px;
+    background: var(--bg-color);
+    position: absolute;
+    left: -295px;
+    top: 40%;
+}
+/* end sections titles style*/
+/* start section items style*/
+.items {
+    width: 800px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin-top: 15px;
+}
+
+.item {
+    width: 230px;
+    height: 350px;
+    margin: 10px;
+    margin-bottom: 55px;
+    background: #fff;
+    border-radius: 5px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+    position: relative;
+    transition: all 0.2s ease-in-out;
+    border-radius: 10px;
+}
+
+.item:hover {
+    box-shadow: 0 0 35px rgba(0, 0, 0, 0.4);
+}
+
+.item_image {
+    width: 100%;
+    height: 70%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    filter: grayscale(100%);
+    border-radius: 10px 10px 0 0;
+
+}
+
+.item_title {
+    font-size: 18px;
+    margin: 5px;
+    text-align: center;
+}
+
+.item_price_container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.item_price {
+    font-size: 15px;
+    color: #5a5a5a;
+}
+
+.item_unit {
+    color: #5a5a5a;
+    font-size: 12px;
+    margin: 3px;
+}
+
+.item_btn {
+    width: 100%;
+    height: 40px;
+    border: none;
+    background: var(--bg-color);
+    position: absolute;
+    bottom: 0;
+    font-family: inherit;
+    color: #fff;
+    text-shadow: 0 0 15px rgba(0, 0, 0, 0.6);
+    box-shadow: 0 -1px 20px rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+    font-size: 17px;
+    border-radius: 0 0 10px 10px;
+}
+
+.item_btn:hover {
+    background: #026ca1;
+}
+/* end section items style*/
