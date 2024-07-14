@@ -1,12 +1,13 @@
 import React from "react";
 import "./Product.css";
+import Basket from '../Basket/Basket'
 
-export default class Main extends React.Component {
+export default class Product extends React.Component {
 	constructor(props) {
 		super(props);
 
 		this.state = {
-			products: [
+			allProducts: [
 				{
 					id: 1,
 					name: "توپ های ماه اوت",
@@ -71,12 +72,28 @@ export default class Main extends React.Component {
 					count: 1,
 				},
 			],
+			basketProducts: [],
 		};
-
-		this.addToBasketHnadler = this.addToBasketHnadler.bind(this)
 	}
 
-	addToBasketHnadler () {
+	addToBasketHnadler(product, productID) {
+
+		let hasProduct = this.state.basketProducts.some((product) => {
+			return product.id === productID;
+
+		});
+		if (hasProduct) {
+			product.count++;
+			this.setState({
+				basketProducts: [...this.state.basketProducts],
+			});
+
+		} else {
+
+			this.setState({
+				basketProducts: [...this.state.basketProducts, product],
+			});
+		}
 
 	}
 
@@ -85,7 +102,7 @@ export default class Main extends React.Component {
 			<div>
 				<h2 className="items_title">کالا ها</h2>
 				<section className="items">
-					{this.state.products.map((product) => (
+					{this.state.allProducts.map((product) => (
 						<div className="item" key={product.id}>
 							<img className="item_image" src={product.src}></img>
 							<h3 className="item_title">{product.name}</h3>
@@ -93,10 +110,20 @@ export default class Main extends React.Component {
 								<p className="item_price">{product.price}</p>
 								<span className="item_unit">تومان</span>
 							</div>
-							<button onClick={this.addToBasketHnadler} className="item_btn">افزودن به سبد خرید</button>
+							<button
+								onClick={this.addToBasketHnadler.bind(
+									this,
+									product,
+									product.id
+								)}
+								className="item_btn"
+							>
+								افزودن به سبد خرید
+							</button>
 						</div>
 					))}
 				</section>
+				<Basket props={this.state.basketProducts} />
 			</div>
 		);
 	}

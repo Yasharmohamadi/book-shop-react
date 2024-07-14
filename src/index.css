@@ -9,6 +9,7 @@
 }
 
 body {
+  direction: rtl;
   background: #E0E0E0;
   font-family: 'IranYekanBold';
   display: flex;

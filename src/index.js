@@ -16,6 +16,6 @@ root.render(
 	<React.Fragment>
 		<Header />
 		<Product />
-		<Basket />
+		{/* <Basket /> */}
 	</React.Fragment>
 );
