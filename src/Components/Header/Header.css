@@ -1,0 +1,15 @@
+
+header {
+    background: var(--bg-color);
+    width: 100%;
+    text-align: center;
+    padding: 10px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+    border-bottom: 3px solid #fff;
+    .header_title {
+        color: #fff;
+        font-size: 25px;
+        text-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+        cursor: pointer;      
+    }
+}
