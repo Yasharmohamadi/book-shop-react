@@ -10,6 +10,27 @@ export default class Basket extends React.Component {
 		this.props.onRemove(id);
 	}
 
+	// changeInputHnadler(product, event) {
+		
+	// 	product.id = event.target.value
+		
+	// 	// console.log(this.props.props);
+
+		
+	// 	// console.log(this.state.basketItems);
+
+	// 	let targetItem = this.props.props.filter((item) => {
+	// 		return item.id == product.id;
+	// 	});
+
+	// 	// targetItem.count;
+
+	// 	// this.setState({
+	// 	// 	// basketItems:
+	// 	// })
+
+	// }
+
 	render() {
 		return (
 			<div>
@@ -42,7 +63,9 @@ export default class Basket extends React.Component {
 											type="number"
 											min="1"
 											max="9"
-											// value={product.count}
+											
+											defaultValue={1}
+											onChange={this.changeInputHnadler.bind(this, product)}
 										></input>
 									</td>
 									<td>

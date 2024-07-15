@@ -106,8 +106,6 @@ export default class Product extends React.Component {
 	}
 
 	removeProduct (id) {
-		// console.log(this.state.basketProducts);
-
 
 		let basketItems = this.state.basketProducts
 
@@ -115,13 +113,11 @@ export default class Product extends React.Component {
 			 return item.id !== id;
 		})
 
-		console.log(targetItem);
 
 		this.setState({
 			basketProducts: targetItem
 		})
 
-		// this.state.basketProducts
 	}
 
 	render() {
