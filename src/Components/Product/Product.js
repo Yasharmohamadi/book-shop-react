@@ -105,6 +105,25 @@ export default class Product extends React.Component {
 		})
 	}
 
+	removeProduct (id) {
+		// console.log(this.state.basketProducts);
+
+
+		let basketItems = this.state.basketProducts
+
+		let targetItem = basketItems.filter((item) => {
+			 return item.id !== id;
+		})
+
+		console.log(targetItem);
+
+		this.setState({
+			basketProducts: targetItem
+		})
+
+		// this.state.basketProducts
+	}
+
 	render() {
 		return (
 			<div>
@@ -131,7 +150,7 @@ export default class Product extends React.Component {
 						</div>
 					))}
 				</section>
-				<Basket props={this.state.basketProducts} onRemove={this.emptyBasket}/>
+				<Basket props={this.state.basketProducts} onEmpty={this.emptyBasket} onRemove={this.removeProduct.bind(this)}/>
 			</div>
 		);
 	}

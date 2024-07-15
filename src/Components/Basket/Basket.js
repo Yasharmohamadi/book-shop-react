@@ -5,8 +5,10 @@ export default class Basket extends React.Component {
 	constructor(props) {
 		super(props);
 	}
-    
 
+	removreBtnClick(id) {
+		this.props.onRemove(id);
+	}
 
 	render() {
 		return (
@@ -24,30 +26,35 @@ export default class Basket extends React.Component {
 							</tr>
 						</thead>
 						<tbody className="tbody">
-                            {this.props.props.map((product) => (
-							<tr key={product.id} className="goods_rows">
-								<td>
-									<img className="basket_img" src={product.src}></img>
-								</td>
-								<td>{product.name}</td>
-								<td className="basket_price_container">
-									<p className="basket_num">{product.price}</p>
-									<p className="basket_unit">تومان</p>
-								</td>
-								<td>
-									<input
-										className="basket_input"
-										type="number"
-										min="1"
-										max="9"
-                                        // value={product.count}
-									></input>
-								</td>
-								<td>
-									<button className="basket_del_button">حذف</button>
-								</td>
-							</tr>
-                            ))}
+							{this.props.props.map((product) => (
+								<tr key={product.id} className="goods_rows">
+									<td>
+										<img className="basket_img" src={product.src}></img>
+									</td>
+									<td>{product.name}</td>
+									<td className="basket_price_container">
+										<p className="basket_num">{product.price}</p>
+										<p className="basket_unit">تومان</p>
+									</td>
+									<td>
+										<input
+											className="basket_input"
+											type="number"
+											min="1"
+											max="9"
+											// value={product.count}
+										></input>
+									</td>
+									<td>
+										<button
+											className="basket_del_button"
+											onClick={this.removreBtnClick.bind(this, product.id)}
+										>
+											حذف
+										</button>
+									</td>
+								</tr>
+							))}
 
 							<tr className="end_row">
 								<td className="final_price" colSpan="3">
@@ -55,10 +62,15 @@ export default class Basket extends React.Component {
 									<span className="final_unit">تومان</span>
 								</td>
 								<td className="final_btn" colSpan="1">
-									<button className="final_basket_empty" onClick={this.props.onRemove}>خالی کردن سبد</button>
+									<button
+										className="final_basket_empty"
+										onClick={this.props.onEmpty}
+									>
+										خالی کردن سبد
+									</button>
 								</td>
 								<td className="final_btn" colSpan="2">
-									<button className="final_btn_elem" >نهایی کردن خرید</button>
+									<button className="final_btn_elem">نهایی کردن خرید</button>
 								</td>
 							</tr>
 						</tbody>
