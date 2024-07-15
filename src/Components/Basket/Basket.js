@@ -5,6 +5,8 @@ export default class Basket extends React.Component {
 	constructor(props) {
 		super(props);
 	}
+    
+
 
 	render() {
 		return (
@@ -27,7 +29,7 @@ export default class Basket extends React.Component {
 								<td>
 									<img className="basket_img" src={product.src}></img>
 								</td>
-								<td>{this.name}</td>
+								<td>{product.name}</td>
 								<td className="basket_price_container">
 									<p className="basket_num">{product.price}</p>
 									<p className="basket_unit">تومان</p>
@@ -38,7 +40,7 @@ export default class Basket extends React.Component {
 										type="number"
 										min="1"
 										max="9"
-                                        value={product.count}
+                                        // value={product.count}
 									></input>
 								</td>
 								<td>
@@ -53,10 +55,10 @@ export default class Basket extends React.Component {
 									<span className="final_unit">تومان</span>
 								</td>
 								<td className="final_btn" colSpan="1">
-									<button className="final_basket_empty">خالی کردن سبد</button>
+									<button className="final_basket_empty" onClick={this.props.onRemove}>خالی کردن سبد</button>
 								</td>
 								<td className="final_btn" colSpan="2">
-									<button className="final_btn_elem">نهایی کردن خرید</button>
+									<button className="final_btn_elem" >نهایی کردن خرید</button>
 								</td>
 							</tr>
 						</tbody>

@@ -74,6 +74,8 @@ export default class Product extends React.Component {
 			],
 			basketProducts: [],
 		};
+
+		this.emptyBasket = this.emptyBasket.bind(this)
 	}
 
 	addToBasketHnadler(product, productID) {
@@ -95,6 +97,12 @@ export default class Product extends React.Component {
 			});
 		}
 
+	}
+
+	emptyBasket () {
+		this.setState({
+			basketProducts: []
+		})
 	}
 
 	render() {
@@ -123,7 +131,7 @@ export default class Product extends React.Component {
 						</div>
 					))}
 				</section>
-				<Basket props={this.state.basketProducts} />
+				<Basket props={this.state.basketProducts} onRemove={this.emptyBasket}/>
 			</div>
 		);
 	}
